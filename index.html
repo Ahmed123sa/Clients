@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Clients</title>
+</head>
+<body>
+    <div class="main d-flex">
+        <div class="container">
+            <h1 class="text-light text-center pt-5">Clients</h1>
+            <div class="top ">
+                <form action="">
+                <input type="text" placeholder="name" >
+                <button type='submit' id="ins" class="btn btn-success">Insert</button>
+                </form>
+            </div>
+            <div class="search">
+                <input placeholder="Search" onkeyup="searchNames(this.value)" id="search-in" type="search" name="" id="">
+                
+            </div>
+           
+            <div class="month text-light text-center"><h2>Month:</h2><h1><script>document.write(new Date().getMonth())</script></h1></div>
+            <div class="details container">
+
+            </div>
+            
+        </div>
+        
+
+    </div>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/jquery-3.6.0.min.js"></script>
+    <script src="/plugins.js"></script>
+    
+</body>
+</html>

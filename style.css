@@ -1,0 +1,50 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: black;
+}
+.top{
+
+}
+.top>button{
+    padding: 2px 5px;
+    font-size: 20px;
+}
+input{
+    width:80%;
+
+}
+.bot{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    min-height: 100px;  gap:2px ; 
+}
+.name{
+    background-color: white;
+    width: 100%;min-height: 40px;
+    text-align: center;
+   }
+   .name h3{
+    font-size: 20px;
+   }
+   input {
+    width: 100%;
+    height: 35px;
+    margin: 10px;
+}
+  form{
+    display: flex;
+    align-items: center;
+  }
+  #ins{
+    display: block;
+    height: 40px;
+  }
+  .details{
+    box-shadow: 0px 0px 10px 0px #0d6efd;
+  }
