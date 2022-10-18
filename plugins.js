@@ -1,6 +1,5 @@
 let input = document.querySelector('input');
-let inputW=document.querySelector('.weight');
-let inputP =document.getElementById('phone');
+let inputW=document.querySelector('.weight')
 let insert = document.getElementById('ins');
 let containDiv = document.querySelector('.details');
 
@@ -22,8 +21,7 @@ insert.onclick=(function(e){
   const data = {
     name: input.value,
     date: new Date().toLocaleString(), 
-    weight: inputW.value,
-    phone: inputP.value,
+    weight: inputW.value
     
   }
   namesArray.push(data);
@@ -44,29 +42,12 @@ function clearData(){
 function addToPage(){
   let botDiv = '';
   for(let i=0; i<namesArray.length; i++){
-    let theDate = new Date (namesArray[i].date);
-    let newDate = new Date();
-    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
-      $('.name').css('background','red')
-      $('.name').css('color','white')
-    }
-    if(inputW == ""){
-      namesArray[i].weight = "";
-      localStorage.data= JSON.stringify(namesArray);
-      
-    }
-    if(inputP == ""){
-      namesArray[i].phone = "";
-      localStorage.data= JSON.stringify(namesArray);
-
-    }
     
     botDiv += `
         <div class="bot">
-          <span>${i+1}</span><div class="name">${namesArray[i].name} 
+          <span></span><div class="name">${namesArray[i].name}
+          <div class="date">${namesArray[i].date}</div>
           <div>${namesArray[i].weight}</div>
-          <div>${namesArray[i].phone}</div>
-          <div class="date">${namesArray[i].date} </div>          
           </div>
            <button onclick="deletData(${i})" class="btn btn-danger" id="del">Delete</button>
            <button onclick="Renew(${i})" id="Ren" class="btn btn-primary">Renew</button>
@@ -74,19 +55,21 @@ function addToPage(){
     `
   }
   containDiv.innerHTML=botDiv;
-  ///undefined
-  if(namesArray[i].weight == undefined || namesArray[i].phone == undefined){
-    namesArray[i].weight == "";
-    namesArray[i].phone == ""
+  
+  
+  for(let i=0; i<namesArray.length; i++){
+    
+    let theDate = new Date (namesArray[i].date);
+    let newDate = new Date();
+    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
+      $('.name').css('background','red')
+      $('.name').css('color','white')
+    }
   }
-  
-  
- 
 }
 //delet
 function deletData(i){
   let del = JSON.stringify(namesArray.splice(i,1));
-  
   
   namesArray.splice(i,0);
  localStorage.data= JSON.stringify(namesArray);
@@ -123,42 +106,4 @@ function searchNames(value)
     }
   } 
   containDiv.innerHTML=botDiv;
-}
-//////
-let month=document.getElementById('month');
-let newCont = document.querySelector('.new')
-
-if(month.innerText < new Date().getMonth()){
-  let botDiv = '';
-  for(let i=0; i<namesArray.length; i++){
-    let theDate = new Date (namesArray[i].date);
-    let newDate = new Date();
-    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
-      $('.name').css('background','red')
-      $('.name').css('color','white')
-    }
-    if(inputW == ""){
-      namesArray[i].weight = "";
-      localStorage.data= JSON.stringify(namesArray);
-      
-    }
-    if(inputP == ""){
-      namesArray[i].phone = "";
-      localStorage.data= JSON.stringify(namesArray);
-
-    }
-    
-    botDiv += `
-        <div class="bot">
-          <span>${i+1}</span><div class="name">${namesArray[i].name} 
-          <div>${namesArray[i].weight}</div>
-          <div>${namesArray[i].phone}</div>
-          <div class="date">${namesArray[i].date} </div>          
-          </div>
-           <button onclick="deletData(${i})" class="btn btn-danger" id="del">Delete</button>
-           <button onclick="Renew(${i})" id="Ren" class="btn btn-primary">Renew</button>
-        </div>
-    `
-  }
-  newCont.innerHTML=botDiv;
 }
