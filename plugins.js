@@ -44,10 +44,26 @@ function clearData(){
 function addToPage(){
   let botDiv = '';
   for(let i=0; i<namesArray.length; i++){
+    let theDate = new Date (namesArray[i].date);
+    let newDate = new Date();
+    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
+      $('.name').css('background','red')
+      $('.name').css('color','white')
+    }
+    if(inputW ==""){
+      namesArray[i].weight = "";
+      
+    }
+    if(inputP ==""){
+      namesArray[i].phone = "";
+
+    }
     
     botDiv += `
         <div class="bot">
-          <span>${i+1}</span><div class="name">${namesArray[i].name} - ${namesArray[i].weight} - ${namesArray[i].phone}
+          <span>${i+1}</span><div class="name">${namesArray[i].name} 
+          <div>${namesArray[i].weight}</div>
+          <div>${namesArray[i].phone}</div>
           <div class="date">${namesArray[i].date} </div>          
           </div>
            <button onclick="deletData(${i})" class="btn btn-danger" id="del">Delete</button>
@@ -58,16 +74,7 @@ function addToPage(){
   containDiv.innerHTML=botDiv;
   
   
-  for(let i=0; i<namesArray.length; i++){
-    
-    let theDate = new Date (namesArray[i].date);
-    let newDate = new Date();
-    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
-      $('.name').css('background','red')
-      $('.name').css('color','white')
-    }
-    
-  }
+ 
 }
 //delet
 function deletData(i){
