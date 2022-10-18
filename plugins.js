@@ -74,6 +74,11 @@ function addToPage(){
     `
   }
   containDiv.innerHTML=botDiv;
+  ///undefined
+  if(namesArray[i].weight == undefined || namesArray[i].phone == undefined){
+    namesArray[i].weight == "";
+    namesArray[i].phone == ""
+  }
   
   
  
