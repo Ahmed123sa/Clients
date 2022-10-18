@@ -15,23 +15,25 @@
             <div class="top ">
                 <form action="">
                 <input type="text" placeholder="name" >
+                <input type="text" class="weight" placeholder="weight">
                 <button type='submit' id="ins" class="btn btn-success">Insert</button>
                 </form>
             </div>
             <div class="search">
-                <input placeholder="Search" onkeyup="searchNames(this.value)" id="search-in" type="search" name="" id="">
-                
+                <input type="number" name="" id="phone" placeholder="phone number">
+                <input placeholder="Search" onkeyup="searchNames(this.value)" id="search-in" type="search" name="" id="">    
             </div>
-           
-            <div class="month text-light text-center"><h2>Month:</h2><h1><script>document.write(new Date().getMonth())</script></h1></div>
-            <div class="details container">
+            <div class="month text-light text-center"><h2>Month:</h2><h1 id="month"><script>document.write(new Date().getMonth()+1)</script></h1></div>
+            <div class="details container"> 
+             
+            </div>
+            <div class="new">
 
             </div>
-            
         </div>
         
-
     </div>
+    
     <script src="/bootstrap.bundle.min.js"></script>
     <script src="/jquery-3.6.0.min.js"></script>
     <script src="/plugins.js"></script>
