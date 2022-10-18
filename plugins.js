@@ -52,10 +52,12 @@ function addToPage(){
     }
     if(inputW == ""){
       namesArray[i].weight = "";
+      localStorage.data= JSON.stringify(namesArray);
       
     }
     if(inputP == ""){
       namesArray[i].phone = "";
+      localStorage.data= JSON.stringify(namesArray);
 
     }
     
@@ -124,13 +126,30 @@ let newCont = document.querySelector('.new')
 if(month.innerText < new Date().getMonth()){
   let botDiv = '';
   for(let i=0; i<namesArray.length; i++){
+    let theDate = new Date (namesArray[i].date);
+    let newDate = new Date();
+    if(theDate.getDate() <= newDate.getDate() && theDate.getMonth() < newDate.getMonth()){
+      $('.name').css('background','red')
+      $('.name').css('color','white')
+    }
+    if(inputW == ""){
+      namesArray[i].weight = "";
+      localStorage.data= JSON.stringify(namesArray);
+      
+    }
+    if(inputP == ""){
+      namesArray[i].phone = "";
+      localStorage.data= JSON.stringify(namesArray);
+
+    }
     
     botDiv += `
         <div class="bot">
-          <span>${i+1}</span><div class="name">${namesArray[i].name}
-          <div class="date">${namesArray[i].date }</div>
+          <span>${i+1}</span><div class="name">${namesArray[i].name} 
           <div>${namesArray[i].weight}</div>
-                    </div>
+          <div>${namesArray[i].phone}</div>
+          <div class="date">${namesArray[i].date} </div>          
+          </div>
            <button onclick="deletData(${i})" class="btn btn-danger" id="del">Delete</button>
            <button onclick="Renew(${i})" id="Ren" class="btn btn-primary">Renew</button>
         </div>
