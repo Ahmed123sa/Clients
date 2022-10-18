@@ -50,11 +50,11 @@ function addToPage(){
       $('.name').css('background','red')
       $('.name').css('color','white')
     }
-    if(inputW ==""){
+    if(inputW == ""){
       namesArray[i].weight = "";
       
     }
-    if(inputP ==""){
+    if(inputP == ""){
       namesArray[i].phone = "";
 
     }
